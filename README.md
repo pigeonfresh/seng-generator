@@ -76,7 +76,7 @@ with a few additions. The options are declared as json so javascript functions c
 
 Extra options:
 
-* ```isArray```: (boolean) Whether input should be converted to an array. The input should be a comma seperated list 
+* ```isArray```: (boolean) Whether input should be converted to an array. The input should be a comma separated list
 ```value1,value2,value3```.
 * ```isNumber```: (boolean) Whether input should be converted to a number.
 * ```isBoolean```: (boolean) Whether input should be converted to a boolean.
@@ -185,7 +185,7 @@ $ sg <type> <name>
 Arguments:
 
 * ```type```: The template you want to use. 
-* ```name```: The name you want to use. Can be a comma seperated list to create multiple (example1,example2).
+* ```name```: The name you want to use. Can be a comma separated list to create multiple (example1,example2).
 
 Options:
 
