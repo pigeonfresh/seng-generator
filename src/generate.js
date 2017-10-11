@@ -10,6 +10,7 @@ const toCamelCase = require('to-camel-case');
 const toPascalCase = require('to-pascal-case');
 const isTextOrBinary = require('istextorbinary');
 const _ = require('lodash');
+const handleBarsHelpers = require('handlebars-helpers')();
 
 module.exports = function generate(type, options, settings) {
 	const paths = settings.templatePath.split(',');
@@ -97,6 +98,7 @@ function filterSettings(files, metalsmith, done) {
 function renderTemplates(files, metalsmith, done) {
 	const keys = Object.keys(files);
 	const metadata = metalsmith.metadata();
+	metadata.helpers = handleBarsHelpers;
 
 	async.each(keys, run, done);
 
@@ -178,7 +180,7 @@ function getVariables(type, options, settings) {
 
 		if (variableSettings[key]) {
 			if (variableSettings[key].isArray) {
-				value = value.split(',');
+				value = Array.isArray(value) ? value : value.split(',');
 				value = value.map((item) => item.trim());
 				if (variableSettings[key].isBoolean) {
 					value = value.map((item) => item == 'true' || item == 1);
